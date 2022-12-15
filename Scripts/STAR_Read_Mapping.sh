@@ -43,7 +43,7 @@ do
     sname=$(basename "${r1}" | sed -e 's/_trimmed_rRNA-dep\.fastq\.gz//g')
     STAR \
         --outTmpDir "${STAR_TEMP}" \
-        --outFileNamePrefix "${OUT_BASE}/${sname}" \
+        --outFileNamePrefix "${OUT_BASE}/${sname}_" \
         --runMode alignReads \
         --genomeDir "${STAR_DIR}" \
         --readFilesIn "${r1}" \
