@@ -33,7 +33,7 @@ STAR_TEMP="/scratch.local/STAR_tmp"
 gzip -cd "${REF_FA}" > "${REF_BASE}/genome.fa"
 
 # Make the output directory and run the command
-mkdir -p "${STAR_DIR}" "${STAR_TEMP}"
+mkdir -p "${STAR_DIR}"
 STAR \
     --runMode genomeGenerate \
     --genomeDir "${STAR_DIR}" \
