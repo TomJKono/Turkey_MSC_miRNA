@@ -31,6 +31,7 @@ STAR_TEMP="/scratch.local/STAR_tmp"
 
 # Unzip the genome because STAR can't read zipped references
 gzip -cd "${REF_FA}" > "${REF_BASE}/genome.fa"
+gzip -cd "${REF_GTF}" > "${REF_BASE}/anno.gtf"
 
 # Make the output directory and run the command
 mkdir -p "${STAR_DIR}"
@@ -38,7 +39,7 @@ STAR \
     --runMode genomeGenerate \
     --genomeDir "${STAR_DIR}" \
     --genomeFastaFiles "${REF_BASE}/genome.fa" \
-    --sjdbGTFfile "${REF_GTF}" \
+    --sjdbGTFfile "${REF_BASE}/anno.gtf" \
     --sjdbOverhang "${SPLICE_OVERHANG}" \
     --runThreadN "${SLURM_CPUS_PER_TASK}" \
     --outTmpDir "${STAR_TEMP}" \
