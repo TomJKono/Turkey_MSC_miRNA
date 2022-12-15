@@ -34,7 +34,7 @@ mkdir -p "${FASTQ_OUT}"
 for r1 in $(find "${FASTQ_IN}" -mindepth 1 -maxdepth 1 -type f -name '*.fastq.gz')
 do
     sname=$(basename "${r1}" | sed -e 's/_R1_001\.fastq\.gz//g')
-    _JAVA_OPTIONS="-Xmx45g -Xmx45g" "${BBDUK}" \
+    _JAVA_OPTIONS="-Xmx45g -Xms24g" "${BBDUK}" \
         in="${r1}" \
         out="${FASTQ_OUT}/${sname}_rRNA-dep.fastq.gz" \
         outm="${FASTQ_OUT}/${sname}_rRNA-match.fastq.gz" \
