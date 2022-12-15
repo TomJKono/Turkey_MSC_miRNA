@@ -13,7 +13,7 @@
 
 # Use BBDuk to remove reads that have a high k-mer match to a known rRNA in
 # our SILVA rRNA reference.
-module load module load java/openjdk-17.0.2
+module load java/openjdk-17.0.2
 BBDUK="/home/reedkm/shared/RIS_Projects/Software/bbmap/bbduk.sh"
 
 # Define path to input FASTQ
