@@ -32,7 +32,7 @@ MAX_MISMATCH_PROP="0.03"
 MIN_NORM_SCORE="0"
 MIN_MATCH_PROP="0"
 MIN_TOTAL_MATCH="15"
-OUT_SAM_UNMAPPED="Withihn"
+OUT_SAM_UNMAPPED="Within"
 MIN_SPLICE_OVERHANG="1000"
 BAM_SORT_RAM="90000000000"
 
@@ -61,4 +61,7 @@ do
         --outSAMtype BAM SortedByCoordinate \
         --limitBAMsortRAM "${BAM_SORT_RAM}" \
         --alignSJDBoverhangMin "${MIN_SPLICE_OVERHANG}"
+    # And, annoyingly, we have to remove the temp dir because STAR dies if
+    # the temp dir already exists.
+    rm -rf "${STAR_TEMP}"
 done
