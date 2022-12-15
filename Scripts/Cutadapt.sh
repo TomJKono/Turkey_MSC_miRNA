@@ -39,6 +39,7 @@ do
     # Use the file name to identify the sample name
     sname=$(basename "${r1}" | sed -e 's/_R1_001\.fastq\.gz//g')
     cutadapt \
+        -j "${SLURM_CPUS_PER_TASK}" \
         -m "${MIN_LEN}" \
         -u "${CROP}" \
         -a "${ADAPTER_SEQ}" \
