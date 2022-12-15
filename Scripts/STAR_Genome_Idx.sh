@@ -2,10 +2,11 @@
 #SBATCH -N 1
 #SBATCH -n 1
 #SBATCH -c 24
-#SBATCH --mem-per-cpu=4gb
+#SBATCH --mem-per-cpu=15gb
 #SBATCH -t 12:00:00
 #SBATCH -A reedkm
-#SBATCH -p agsmall
+#SBATCH -p ag2tb
+#SBATCH --tmp=32gb
 #SBATCH --mail-user=konox006@umn.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH -e STAR_Genome_Idx_%j.err
@@ -25,16 +26,21 @@ STAR_DIR="${REF_BASE}/STAR_Idx"
 
 # Set the parameters of the STAR indexing
 SPLICE_OVERHANG="1"
+MIN_RAM="320000000000"
+STAR_TEMP="/scratch.local/STAR_tmp"
 
 # Unzip the genome because STAR can't read zipped references
 gzip -cd "${REF_FA}" > "${REF_BASE}/genome.fa"
 
 # Make the output directory and run the command
-mkdir -p "${STAR_DIR}"
+mkdir -p "${STAR_DIR}" "${STAR_TEMP}"
 STAR \
     --runMode genomeGenerate \
     --genomeDir "${STAR_DIR}" \
     --genomeFastaFiles "${REF_BASE}/genome.fa" \
     --sjdbGTFfile "${REF_GTF}" \
     --sjdbOverhang "${SPLICE_OVERHANG}" \
-    --runThreadN "${SLURM_CPUS_PER_TASK}"
+    --runThreadN "${SLURM_CPUS_PER_TASK}" \
+    --outTmpDir "${STAR_TEMP}" \
+    --outFileNamePrefix "${STAR_DIR}" \
+    --limitGenomeGenerateRAM "${MIN_RAM}"
