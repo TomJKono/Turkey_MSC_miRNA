@@ -16,6 +16,7 @@
 
 # Load the python module and source our Conda environment
 module load python3/3.8.3_anaconda2020.07_mamba
+source "${HOME}/.bashrc"
 conda activate /home/riss/konox006/conda_envs/cutadapt_env
 
 # Define the path to the input reads
