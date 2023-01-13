@@ -21,8 +21,10 @@ cd "${BAM_DIR}"
 "${FEATURECOUNTS}" \
     -Q "${MIN_MAPQ}" \
     -s "${STRAND}" \
-    -t "${THREADS}" \
+    -T "${THREADS}" \
     -F SAF \
     -a "${SAF}" \
+    -M \
+    -O \
     -o "${OUTFILE}" \
     *
