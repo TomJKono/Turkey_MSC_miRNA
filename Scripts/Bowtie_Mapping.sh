@@ -4,7 +4,7 @@
 #SBATCH -c 12
 #SBATCH --mem-per-cpu=4gb
 #SBATCH -p agsmall
-#SBATCH -t 12:00:00
+#SBATCH -t 6:00:00
 #SBATCH -A reedkm
 #SBATCH --mail-user=konox006@umn.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
