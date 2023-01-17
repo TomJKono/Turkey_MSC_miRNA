@@ -49,7 +49,8 @@ do
         -S \
         -x "${REF_IDX}" \
         "${r1}" \
-        "${OUT_DIR}/${sname}.sam"
+        "${OUT_DIR}/${sname}.sam" \
+        2> "${sname}_bowtie.log"
 done
 
 # Then, convert all the same files to bam files
