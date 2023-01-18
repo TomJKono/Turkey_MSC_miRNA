@@ -37,7 +37,7 @@ dge_dat <- calcNormFactors(dge_dat)
 
 # Let's make our first diagnostic plot - the total library size in fragments.
 lib_sizes_M <- as.numeric(dge_dat$samples$lib.size) / 1000000
-pdf(file="Results/miRNA_Expression/miRNA_Frag_Counts.pdf", height=6, width=6)
+pdf(file="Results/miRNA_Expression/miRNA_Frag_Counts.STAR.pdf", height=6, width=6)
 par(mar=c(9, 4, 2.5, 0.1))
 at <- barplot(
     lib_sizes_M,
@@ -53,7 +53,7 @@ dev.off()
 
 
 # Do the counts-based filtering. We are being VERY permissive here.
-min_cts <- 1
+min_cts <- 5
 smallest_grp <- min(table(exp_meta$Group))
 min_cpm <- log2((1 + min_cts) / min(dge_dat$samples$lib.size) * 1e6)
 # Then if a gene has at least N samples with CPM greater than or equal to this
@@ -79,12 +79,12 @@ modmat <- model.matrix(~0 + Group, data=exp_meta)
 dge_dat <- estimateDisp(dge_dat, design=modmat)
 
 # Plot the biological coefficient of variation (BCV)
-pdf(file="Results/miRNA_Expression/miRNA_BCV.pdf", height=6, width=6)
+pdf(file="Results/miRNA_Expression/miRNA_BCV.STAR.pdf", height=6, width=6)
 plotBCV(dge_dat)
 dev.off()
 
 # Plot a PCA of the samples based on the normalized CPMs for each miRNA
-pdf(file="Results/miRNA_Expression/miRNA_PCA.pdf", height=6, width=6)
+pdf(file="Results/miRNA_Expression/miRNA_PCA.STAR.pdf", height=6, width=6)
 norm_cpm <- cpm(dge_dat, log=TRUE, prior.count=1, normalized=TRUE)
 pc_dat <- prcomp(t(norm_cpm), scale=TRUE)
 summary(pc_dat)
@@ -94,8 +94,8 @@ plot(
     pc_2 ~ pc_1,
     xlim=c(-20, 20),
     ylim=c(-10, 10),
-    xlab="PC1 (29.4% Var. Exp.)",
-    ylab="PC2 (13.9% Var. Exp.)",
+    xlab="PC1 (32.8% Var. Exp.)",
+    ylab="PC2 (16.3% Var. Exp.)",
     main="Turkey miRNA PCA",
     pch=19,
     col=as.numeric(dge_dat$samples$group))
