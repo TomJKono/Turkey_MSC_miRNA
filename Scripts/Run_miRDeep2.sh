@@ -19,9 +19,18 @@ source "${HOME}/.bashrc"
 conda activate /home/riss/konox006/conda_envs/miRDeep2_env
 
 # Set paths to resources needed for analysis
-RUN_BASE="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRDeep2_Run"
-REF_IDX="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Reference_Genome/Bowtie_Idx/bt_idx"
-REF_FA="${RUN_BASE}/Turkey5.1_miRDeep2_Names.fa"
+#   This directory is for the Turkey5.1 genome
+# RUN_BASE="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRDeep2_Run"
+#   This directory is for the new assembly
+RUN_BASE="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRDeep2_Run_NewGenome"
+#   This index is for the Turkey5.1 genome
+# REF_IDX="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Reference_Genome/Bowtie_Idx/bt_idx"
+#   This index is for the new genome
+REF_IDX="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Reference_Genome/GCA_943295565.1_MGAL_WU_HG_1.0_parent1/Bowtie_Idx/bt_idx"
+#   This FASTA is Turkey5.1
+# REF_FA="${RUN_BASE}/Turkey5.1_miRDeep2_Names.fa"
+#   This FASTA is for the new genome
+REF_FA="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Reference_Genome/GCA_943295565.1_MGAL_WU_HG_1.0_parent1/genome.fa"
 CHICKEN_MATURE="${RUN_BASE}/mature_gg_miRDeep2_Names.fa"
 CHICKEN_HAIRPIN="${RUN_BASE}/hairpin_gg_miRDeep2_Names.fa"
 INPUT_READS="${RUN_BASE}/combined_reads.fq"
