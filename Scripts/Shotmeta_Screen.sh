@@ -23,7 +23,7 @@ echo "["`date`"] Script start."
 # all of the results from running this pipeline. It should NOT
 # already exist. If this folder already exists, this script will
 # fail.
-PROJ_DIR="/scratch.global/konox006/Reed_Project_016_Shotmeta"
+PROJ_DIR="/scratch.global/konox006/Reed_Project_016_Shotmeta_R1"
 
 # This is the folder that contains all the fastq file you want
 # to analyze. The script will look for any files that end in
