@@ -30,7 +30,7 @@ K_LENGTH="15"
 EDIT_DIST="0"
 THREADS="12"
 
-mkdir -p "${FASTQ_OUT}"
+mkdir -p "${FASTQ_OUT}" "${REP_OUT}"
 for r1 in $(find "${FASTQ_IN}" -mindepth 1 -maxdepth 1 -type f -name '*.fastq.gz')
 do
     sname=$(basename "${r1}" | sed -e 's/\.fastq\.gz//g')
