@@ -28,7 +28,7 @@ PROJ_DIR="/scratch.global/konox006/Reed_Project_016_Shotmeta"
 # This is the folder that contains all the fastq file you want
 # to analyze. The script will look for any files that end in
 # .fastq or .fastq.gz.
-FASTQ_DIR="/home/reedkm/data_release/umgc/novaseq/210825_A00223_0632_AHJHJ5DRXY/Reed_Project_016"
+FASTQ_DIR="/scratch.global/konox006/Reed_Project_016/R1s"
 
 #######################################################################
 # EDIT ABOVE HERE
