@@ -18,11 +18,11 @@ mkdir -p "${DEST_DIR}"
 cd "${DEST_DIR}"
 
 # Make the links!
-for bfile in $(find "${SRC_DIR}" -mindepth 1 -maxdepth 1 -type f -name '*.bam')
+for bfile in $(find "${SRC_DIR}" -mindepth 1 -maxdepth 1 -type f -name '*_sorted.bam')
 do
     # for STAR filenames
     # sname=$(basename "${bfile}" | sed -e 's/_Aligned.sortedByCoord.out.bam//g')
     # for Bowtie filenames
-    sname=$(basename "${bfile}" | sed -e 's/.bam//g')
+    sname=$(basename "${bfile}" | sed -e 's/_sorted.bam//g')
     ln -s "${bfile}" "./${sname}"
 done
