@@ -7,9 +7,9 @@ FEATURECOUNTS="/home/reedkm/shared/RIS_Projects/Software/subread-2.0.3-Linux-x86
 # Path to the SAF file
 SAF="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/Turkey_miRNAs.saf"
 # Path to the output file
-OUTFILE="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/Counts/miRNA_Expression.txt"
+OUTFILE="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/Counts/miRNA_Expression.bt.txt"
 # Path to the directory of BAM Links
-BAM_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_NiceNames"
+BAM_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_BT_NiceNames"
 
 # Set some parameters for the counting
 MIN_MAPQ="10"
