@@ -24,7 +24,7 @@ FASTQ_OUT="/scratch.global/konox006/Reed_Project_016/Trimmed_tRNA_Dep_Reads"
 REP_OUT="/home/reedkm/shared/RIS_Projects/Reed_Project_016/tRNA_Screen_Reports"
 
 # Define the parameters for rRNA trimming
-TRNA_REF="/home/reedkm/shared/RIS_Projects/Reed_Project_016/GtRNAdb_Turkey/melGal5-mature-tRNAs.U-to-T.fa"
+TRNA_REF="/home/reedkm/shared/RIS_Projects/Reed_Project_016/GtRNAdb_Turkey/melGal5-tRNAs.U-to-T.fa"
 MIN_LENGTH="15"
 K_LENGTH="15"
 EDIT_DIST="0"
