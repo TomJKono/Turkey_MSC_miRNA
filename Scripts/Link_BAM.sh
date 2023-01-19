@@ -6,13 +6,13 @@
 # Directory to where the BAM files are
 #   These are for STAR
 # SRC_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM"
-#   These are for Bowtie
-SRC_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_BT"
+#   These are for Bowtie against the new genome
+SRC_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_NewGenome"
 # Directory to where the links will be made
 #   For STAR
 # DEST_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_NiceNames"
-#   For Bowtie
-DEST_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_BT_NiceNames"
+#   For Bowtie against new genome
+DEST_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_BT_NewGenome_NiceNames"
 
 mkdir -p "${DEST_DIR}"
 cd "${DEST_DIR}"

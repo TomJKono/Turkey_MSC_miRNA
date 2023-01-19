@@ -20,10 +20,13 @@ module load parallel/20210822
 # Path to bowtie program
 BOWTIE="/home/reedkm/shared/RIS_Projects/Software/bowtie-1.3.1-linux-x86_64/bowtie"
 # Path to reference index
-REF_IDX="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Reference_Genome/Bowtie_Idx/bt_idx"
+#   This is for Turkey5.1
+#REF_IDX="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Reference_Genome/Bowtie_Idx/bt_idx"
+#   This is for the new NCBI Genome
+REF_IDX="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Reference_Genome/GCA_943295565.1_MGAL_WU_HG_1.0_parent1/Bowtie_Idx/bt_idx"
 
 # Path to alignment directory
-OUT_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_BT"
+OUT_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/miRNA_Expression/BAM_NewGenome"
 # Path to reads directory
 READS_DIR="/home/reedkm/shared/RIS_Projects/Reed_Project_016/Trimmed_rRNA_Dep_Reads"
 
