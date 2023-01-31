@@ -339,3 +339,18 @@ colnames(dge_48_43vs33_table) <- c("miRNA.ID", "logFC.43vs33", "logCPM", "F.43vs
 dge_48_tab_A <- merge(dge_48_38vs33_table, dge_48_43vs38_table, by=c("miRNA.ID", "logCPM"), all=TRUE)
 dge_48_tab_B <- merge(dge_48_tab_A, dge_48_43vs33_table, by=c("miRNA.ID", "logCPM"), all=TRUE)
 write.csv(dge_48_tab_B, file="Results/miRNA_Expression/vs_NewGenome/DEmiRs/48h_DE_miRs.csv", row.names=F, quote=F)
+
+# Save the edgeR objects for the 72h and 48h experiments; we will use these for
+# a variance partitioning analysis.
+saveRDS(dge_dat_72, file="Results/miRNA_Expression/vs_NewGenome/72h_edgeR_Dat.rds")
+saveRDS(dge_dat_48, file="Results/miRNA_Expression/vs_NewGenome/48h_edgeR_Dat.rds")
+
+# Finally, let's just write the normalized CPMs for each of the experiments
+# to do other analyses with them.
+cpm_72 <- cpm(dge_dat_72, normalized=TRUE, log=TRUE, prior.count=1)
+rownames(cpm_72) <- dge_dat_72$genes[,1]
+write.csv(cpm_72, file="Results/miRNA_Expression/vs_NewGenome/CPMs/72h_NormCPM.csv", row.names=TRUE, quote=FALSE)
+cpm_48 <- cpm(dge_dat_48, normalized=TRUE, log=TRUE, prior.count=1)
+rownames(cpm_48) <- dge_dat_48$genes[,1]
+write.csv(cpm_48, file="Results/miRNA_Expression/vs_NewGenome/CPMs/48h_NormCPM.csv", row.names=TRUE, quote=FALSE)
+
