@@ -97,7 +97,7 @@ script.
 ### miRDeep2
 #### Installation
 miRDeep2 and its dependencies were installed into a Conda environment with the
-follwing command:
+following command:
 
 ```bash
 conda create \
@@ -160,7 +160,7 @@ python Scripts/miRNA_BED_to_SAF.py result_20_12_2022_t_11_07_40.bed \
 ```
 
 Next, the final BAM files were symlinked into a separate directory to ease the
-parsing of the `featureCounts` output file. The symliking is implemented in
+parsing of the `featureCounts` output file. The symlinking is implemented in
 the `Scripts/Link_BAM.sh` script.
 
 Then, the matrix of read counts was generated with `featureCounts`. Only reads
@@ -200,8 +200,8 @@ For the expression analyses, the `Time=48` samples and the `Time=72` samples
 were separated and analyzed as two different experiments.
 
 ### Global Expression Analysis
-The follwing analyses are implemented in two scripts, `Scripts/miRNA_edgeR.R`
-and `Scripts/miRNA_VarPart.R`. Snippets of the R code are reprodcued here for
+The following analyses are implemented in two scripts, `Scripts/miRNA_edgeR.R`
+and `Scripts/miRNA_VarPart.R`. Snippets of the R code are reproduced here for
 illustrative purposes only.
 
 #### Filtering
@@ -232,7 +232,7 @@ keep <- apply(cpms, 1, function(x) {
 
 Library sizes and normalization factors were then recalculated after filtering
 miRNAs with low expression. The biological coefficient of variation (BCV) was
-assessed wtih the figures generated from the `plotBCV()` function.
+assessed with the figures generated from the `plotBCV()` function.
 
 #### Principal Components Analysis
 Normalized log2(CPM) values from the filtered miRNA expression matrix were used
@@ -289,7 +289,7 @@ dge_48_43vs33 <- glmQLFTest(
 ```
 
 Specific comparisons were also performed within-genotype and between
-incubation tempteratures. These tests were perfomed with the same functions,
+incubation temperatures. These tests were performed with the same functions,
 but with a subset of the expression matrix that only included the samples being
 compared.
 
