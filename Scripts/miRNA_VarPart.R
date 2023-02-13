@@ -46,3 +46,10 @@ pdf(file="Results/miRNA_Expression/vs_NewGenome/48h_Variance_Partition.pdf", hei
 plotVarPart(vp_fit_48)
 dev.off()
 
+# Save the variance partition results to CSV
+vp_fit_72_mat <- as.matrix(vp_fit_72)
+rownames(vp_fit_72_mat) <- dge_dat_72$genes[,1]
+write.csv(vp_fit_72_mat, file="Results/miRNA_Expression/vs_NewGenome/72h_Variance_Partition.csv", row.names=TRUE, quote=FALSE)
+vp_fit_48_mat <- as.matrix(vp_fit_48)
+rownames(vp_fit_48_mat) <- dge_dat_48$genes[,1]
+write.csv(vp_fit_48_mat, file="Results/miRNA_Expression/vs_NewGenome/48h_Variance_Partition.csv", row.names=TRUE, quote=FALSE)
