@@ -3,7 +3,6 @@
 setwd("~/Dropbox/GitHub/RIS/ReedKM_Turkey_miRNA")
 
 library("edgeR")
-library("pheatmap")
 
 # Read in the counts matrix
 counts <- read.table("Results/miRNA_Expression/vs_NewGenome/miRNA_Expression.bt.NewGenome.txt", header=TRUE, sep="\t")
@@ -187,7 +186,7 @@ dev.off()
 
 # OK, now let's start the miRNA DE analysis!
 # Start with the 72h samples because these look pretty uniform and nice. We
-# will do the simplistic appraoch of running pairwise comparisions for now
+# will do the simplistic approach of running pairwise comparisions for now
 comp_1_meta <- exp_meta_72[exp_meta_72$Group %in% c("NCT_33", "NCT_38"),]
 comp_1_meta$Group <- factor(comp_1_meta$Group, levels=c("NCT_33", "NCT_38"))
 comp_1_dat <- dge_dat_72[,comp_1_meta$Sample]
@@ -289,6 +288,44 @@ comp_11_fit <- glmQLFit(comp_11_dat, design=comp_11_modmat)
 comp_11_dge <- glmQLFTest(comp_11_fit, coef=2)
 comp_11_table <- topTags(comp_11_dge, n=nrow(comp_11_dge$genes))
 write.csv(comp_11_table, file="Results/miRNA_Expression/vs_NewGenome/DEmiRs/48h_RBC243-vs-NCT43.csv", row.names=F, quote=F)
+
+# Oops - forgot to do the within-RBC2 comparisions! Do the 48h ones here:
+comp_12_meta <- exp_meta_48[exp_meta_48$Group %in% c("RBC2_33", "RBC2_38"),]
+comp_12_meta$Group <- factor(comp_12_meta$Group, levels=c("RBC2_33", "RBC2_38"))
+comp_12_dat <- dge_dat_48[,comp_12_meta$Sample]
+comp_12_modmat <- model.matrix(~Group, data=comp_12_meta)
+comp_12_fit <- glmQLFit(comp_12_dat, design=comp_12_modmat)
+comp_12_dge <- glmQLFTest(comp_12_fit, coef=2)
+comp_12_table <- topTags(comp_12_dge, n=nrow(comp_12_dge$genes))
+write.csv(comp_12_table, file="Results/miRNA_Expression/vs_NewGenome/DEmiRs/48h_RBC238-vs-RBC233.csv", row.names=F, quote=F)
+
+comp_13_meta <- exp_meta_48[exp_meta_48$Group %in% c("RBC2_38", "RBC2_43"),]
+comp_13_meta$Group <- factor(comp_13_meta$Group, levels=c("RBC2_38", "RBC2_43"))
+comp_13_dat <- dge_dat_48[,comp_13_meta$Sample]
+comp_13_modmat <- model.matrix(~Group, data=comp_13_meta)
+comp_13_fit <- glmQLFit(comp_13_dat, design=comp_13_modmat)
+comp_13_dge <- glmQLFTest(comp_13_fit, coef=2)
+comp_13_table <- topTags(comp_13_dge, n=nrow(comp_13_dge$genes))
+write.csv(comp_13_table, file="Results/miRNA_Expression/vs_NewGenome/DEmiRs/48h_RBC243-vs-RBC238.csv", row.names=F, quote=F)
+
+comp_14_meta <- exp_meta_48[exp_meta_48$Group %in% c("RBC2_33", "RBC2_43"),]
+comp_14_meta$Group <- factor(comp_14_meta$Group, levels=c("RBC2_33", "RBC2_43"))
+comp_14_dat <- dge_dat_48[,comp_14_meta$Sample]
+comp_14_modmat <- model.matrix(~Group, data=comp_14_meta)
+comp_14_fit <- glmQLFit(comp_14_dat, design=comp_14_modmat)
+comp_14_dge <- glmQLFTest(comp_14_fit, coef=2)
+comp_14_table <- topTags(comp_14_dge, n=nrow(comp_14_dge$genes))
+write.csv(comp_14_table, file="Results/miRNA_Expression/vs_NewGenome/DEmiRs/48h_RBC243-vs-RBC233.csv", row.names=F, quote=F)
+
+# And the 72h ones here:
+comp_15_meta <- exp_meta_72[exp_meta_72$Group %in% c("RBC2_38", "RBC2_43"),]
+comp_15_meta$Group <- factor(comp_15_meta$Group, levels=c("RBC2_38", "RBC2_43"))
+comp_15_dat <- dge_dat_72[,comp_15_meta$Sample]
+comp_15_modmat <- model.matrix(~Group, data=comp_15_meta)
+comp_15_fit <- glmQLFit(comp_15_dat, design=comp_15_modmat)
+comp_15_dge <- glmQLFTest(comp_15_fit, coef=2)
+comp_15_table <- topTags(comp_15_dge, n=nrow(comp_15_dge$genes))
+write.csv(comp_15_table, file="Results/miRNA_Expression/vs_NewGenome/DEmiRs/72h_RBC243-vs-RBC238.csv", row.names=F, quote=F)
 
 # Woof! OK, let's do a little more complicated analysis where we analyze the
 # 72h and 48h samples as bigger experiments with incubation temp effects and
